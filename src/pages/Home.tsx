@@ -16,17 +16,19 @@ const Home = () => {
       {isLoading && <p>Yükleniyor...</p>}
       {error && <p>Bir hata oluştu!</p>}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {movies?.map((movie: { id: number; poster_path: string; title: string }) => (
-          <Link key={movie.id} to={`/movie/${movie.id}`}>
-            <div className="border rounded-lg p-2 hover:shadow-lg transition">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <h3 className="mt-2 font-bold">{movie.title}</h3>
-            </div>
-          </Link>
-        ))}
+        {movies?.map(
+          (movie: { id: number; poster_path: string; title: string }) => (
+            <Link key={movie.id} to={`/movie/${movie.id}`}>
+              <div className="border rounded-lg p-2 hover:shadow-lg transition">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                />
+                <h3 className="mt-2 font-bold">{movie.title}</h3>
+              </div>
+            </Link>
+          )
+        )}
       </div>
     </div>
   );
